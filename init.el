@@ -53,7 +53,8 @@
 				 smex
 ;;				 counsel
 ;;				 smartparens
-;;				 swiper
+				 ;;				 swiper
+				 popwin
 				 ) "Default packages")
 ;; 屏蔽pakage autoremove
 (setq package-selected-packages zilongshanren/packages)
@@ -99,3 +100,7 @@
 ;; org-mode 配置
 (setq org-agenda-files '("~/org"))
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+;; popwin config
+(require 'popwin)
+(popwin-mode t)
