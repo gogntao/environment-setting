@@ -1,6 +1,9 @@
 (require 'package)
 (package-initialize)
-
+;; 更改显示字体大小 14pt
+(set-face-attribute 'default nil :height 140)
+;; 设置启动时屏幕最大化
+(setq initial-frame-alist (quote ((fullscreen . maximized))))
 ;去除工具栏
 (tool-bar-mode -1)
 ;去除右侧滑动框
@@ -19,7 +22,8 @@
 
 ;开启全局补全模式O
 (global-company-mode t)
-
+;; 更改光标样式
+(setq-default cursor-type 'bar)
 ; 引用代码高亮
 (require 'org)
 (setq org-src-fontify-natively t)
@@ -50,10 +54,9 @@
 				 company
 				 monokai-theme
 				 hungry-delete
-				 smex
-;;				 counsel
-;;				 smartparens
-				 ;;				 swiper
+;;				 smex
+				 counsel
+				 smartparens
 				 popwin
 				 ) "Default packages")
 ;; 屏蔽pakage autoremove
@@ -98,9 +101,28 @@
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 
 ;; org-mode 配置
-(setq org-agenda-files '("~/org"))
+(setq org-agenda-files '("~/shedule"))
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; popwin config
 (require 'popwin)
 (popwin-mode t)
+;; consual config
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+;; enable this if you want `swiper' to use it
+;; (setq search-default-mode #'char-fold-to-regexp)
+(global-set-key "\C-s" 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "<f6>") 'ivy-resume)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+;;(global-set-key (kbd "<f1> l") 'counsel-find-library)
+
+;; smartparens config
+(require 'smartparens-config)
+(smartparens-global-mode t)
+
