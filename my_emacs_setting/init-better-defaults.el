@@ -65,6 +65,8 @@
 (require 'dired-x)
 
 (setq dired-dwim-target t)
+;; 可以用来方便的切换窗口
+(window-numbering-mode 1)
+;; 可以方便的查看当前快捷键的作用
+(which-key-mode 1)
 
-(with-eval-after-load 'dired
-(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))

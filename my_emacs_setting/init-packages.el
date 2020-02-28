@@ -3,8 +3,9 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-  (add-to-list 'package-archives '("melpa". "http://stable.melpa.org/packages/" ) t)
-  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/" ) t)
+ ;; (add-to-list 'package-archives '("melpa". "http://stable.melpa.org/packages/" ) t)
+  (setq package-archives '(("gnu" . "http://elpa.emacs-china.org/gnu/")
+                           ("melpa" . "http://elpa.emacs-china.org/melpa/")))
   )
 
 
@@ -13,10 +14,15 @@
 				 company
 				 monokai-theme
 				 hungry-delete
-;;				 smex
 				 counsel
 				 smartparens
 				 popwin
+				 reveal-in-osx-finder
+				 helm-ag
+                                 window-numbering
+				 which-key
+				 iedit
+				 org-bullets
 				 ) "Default packages")
 ;; 屏蔽pakage autoremove
 (setq package-selected-packages zilongshanren/packages)
